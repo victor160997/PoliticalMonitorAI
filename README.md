@@ -49,7 +49,7 @@ Localizado na pasta `frontend/`, o frontend é construído utilizando React e Vi
 
 ### Backend
 
-1. Certifique-se de ter o Docker instalado.
+1. Certifique-se de ter o Node.js instalado.
 2. Navegue até a pasta `backend/`.
 3. Renomeie o arquivo .env.example para .env e coloque a chave da OPEN AI.
 4. Execute o comando:
@@ -88,7 +88,7 @@ Localizado na pasta `frontend/`, o frontend é construído utilizando React e Vi
 
 - **API de Políticos**: Fornece informações sobre políticos.
 - **Serviços de Câmara e Senado**: Integração com APIs externas para dados legislativos.
-- **Serviço OpenAI**: Utiliza a API da OpenAI para funcionalidades avançadas.
+- **Serviço OpenAI**: Utiliza a API da OpenAI para dar contexto do político selecionado e responder perguntas sobre ele.
 
 ### Frontend
 
