@@ -51,10 +51,15 @@ Localizado na pasta `frontend/`, o frontend é construído utilizando React e Vi
 
 1. Certifique-se de ter o Docker instalado.
 2. Navegue até a pasta `backend/`.
-3. Execute o comando:
+3. Renomeie o arquivo .env.example para .env e coloque a chave da OPEN AI.
+4. Execute o comando:
 
    ```bash
-   docker-compose up
+   npm install
+   ```
+
+   ```bash
+   npm start
    ```
 
 4. O backend estará disponível em `http://localhost:3001`.
@@ -66,13 +71,13 @@ Localizado na pasta `frontend/`, o frontend é construído utilizando React e Vi
 3. Instale as dependências:
 
    ```bash
-   bun install
+   npm install
    ```
 
 4. Execute o servidor de desenvolvimento:
 
    ```bash
-   bun run dev
+   npm run dev
    ```
 
 5. O frontend estará disponível em `http://localhost:8080`.
