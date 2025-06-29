@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # Serviço para o frontend (aplicação React)
+  # frontend-app:
+  #   build: ./frontend # Define o contexto para o Dockerfile do frontend
+  #   container_name: monitor-legislativo-frontend
+  #   ports:
+  #     - "3000:80" # Mapeia a porta 3000 do seu host para a porta 80 do contêiner (onde o Nginx escuta)
+  #   depends_on:
+  #     - backend-api # Garante que o backend-api inicie antes do frontend-app
+  #   networks:
+  #     - app-network # Conecta este serviço à rede comum
+
+  # Serviço para o backend (API Node.js)
+  backend-api:
+    build: ./ # Define o contexto para o Dockerfile do backend
+    container_name: monitor-legislativo-backend
+    ports:
+      - "3001:3001" # Mapeia a porta 3001 do seu host para a porta 3001 do contêiner (onde o Express escuta)
+    environment:
+      # Variáveis de ambiente que o backend precisa, carregadas do arquivo .env
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      PORT: 3001 # Garante que o Node.js escute na porta correta dentro do contêiner
+      ALLOWED_ORIGIN: http://localhost:3000 # Importante para CORS no backend
+    networks:
+      - app-network # Conecta este serviço à rede comum
+    env_file:
+      - ./.env # Especifica o arquivo .env para carregar variáveis de ambiente
+
+# Definição de uma rede Docker para que os serviços possam se comunicar facilmente
+networks:
+  app-network:
+    driver: bridge # Tipo de rede padrão
